@@ -1,0 +1,329 @@
+
+
+NodeJS:
+
+https://node.green/   >> Check which node version supports which feature
+
+https://www.youtube.com/watch?v=pU9Q6oiQNd0
+
+What is NodeJS? Javascript runtime built on top of V8 engine
+
+What is express? It is a web development framework. In other words, its a package that allows you to build web applications. Unopinionated and Minimalist.
+node -v
+npm -v
+
+https://github.com/coreybutler/nvm-windows >> helps to switch between node versions
+	nvm install 9.5   	>> will install version 9.5. it will install the relevant npm version as well
+	nvm use 8.9.4  		>> will switch to 8.9.4 
+	nvm install --lts 	>> installs latest LTS version
+	nvm alias default 9.5 	>> default version on opening the terminal
+	
+.npmrc file
+
+Debugging:
+	chalk : coloring
+	debug : set DEBUG=* & node app.js
+			set DEBUG=app & node app.js
+	morgan : log traffic related stuff to console
+	
+npm install bootstrap jquery  >> install bootstrap and jquery
+	
+`` template strings
+----------------PACKAGES--------------------
+NODEMON.IO
+pug
+ejs
+mssql
+mongodb
+body-parser 	>> req.body
+passport 		>> for authentication
+pasport-local	>> passport strategy
+cookie-parser
+express-session
+
+----------------Templating Engines-----------
+npm install pug
+npm install ejs
+----------------Templates--------------------
+www.bootstrapzero.com 	>> storystrap
+
+----------------VS Code Extensions-----------
+ESLint
+.ejs
+
+----------------EXPRESS----------------------
+express.static
+
+app.use  ::: means middleware
+
+----------------ESLint-----------------------
+npm install -g eslint
+eslint --init
+github.com/airbnb
+
+eslint app.js		>> runs globally installed eslint
+.\node_modules\.bin\eslint app.js	>> runs locally installed eslint along with airbnb pkg
+	
+----------------NPM Scripts-----------------
+npm scripts always pick local package, not global
+
+npm [scriptname] //for test and start
+npm run [scriptname] //for anything other than test and start
+
+
+-------------QUESTIONS-------------------
+prefer-arrow-callback : Why arrow-callback is preferred compared to function callback. Somthing at 'this' beviour
+Symbol type???
+Webassembly vs Javascript
+Prettier
+// @ts-check 
+jsdoc comments
+-----------------------------------------
+
+What do you do with it?
+	- Utilities on your machine: Gulp, grunt, Yoeman (Front end developer)
+	- a web server (express, koa) (NodeJS engineer)
+	
+Gimme super basics:
+	- How modules work
+	- npm modules
+	- make a basic webserver
+	
+	
+Javascript in the browser has the objects: window and document
+Javascript in NodeJS has objects: global and process
+
+require()
+exports
+
+npm install underscore
+
+npm init  :: creates package.json
+
+npm install backbone
+
+npm install  :: installs all dependencies mentioned in package.json
+
+"http" package comes built into node, so it doesnt have to be installed with npm.
+----------------------------------------------------------------
+
+Node.js tutorial for beginners 2014 - an introduction to Node.js with Express.js
+https://www.youtube.com/watch?v=FqMIyTH9wSg
+
+
+npm install -g express-generator // -g means global
+
+express exp2018   :: creates an app named exp2018
+
+rm -R exp2018
+
+express exp2018 --hogan -c less
+
+-------------------Modules---------------------------------------
+What? Fancy word for a file(or folder) that contains code.
+
+Node wraps the file with a function first. This is specific to Node, not browsers.
+So, module is a function that receives arguments from Node, and it also returns something.
+
+Exports or module.exports can be used to define the API of a module.
+Require - to require other modules into this module.
+
+
+NPM packages use CommonJS pattern. Node can understand this pattern, but browsers cannot.
+So you need to bundle NPM packages into a format the browser can consume.
+
+Module Formats::
+1. IIFE									>> A way to encapsulate JS
+2. Asynchronous Module Definition (AMD) >> RequireJS uses AMD to encapsulate the code
+3. Common JS (CJS)						>> You can continue to use this format in Node: var jquery = require('jquery')
+4. Universal Module DEfinition (UMD)	>> Blends AMD and commonJS
+5. ES6 Modules							>> Use this for ES6 and newer versions of JS : import jQuery from 'jquery'
+
+ES6 modules/ES2015 modules::
+- Standardized
+- Can't declare ES6 modules dynamically.This makes the code statically analyzable
+	> Improved autocomplete
+	> INtelligent refactoring
+	> Fails faster
+	> Tree shaking
+- Easy to read
+	> Named imports
+	> Default exports
+
+---------------------EventLoop-----------------------------------
+Whats it? It is what Node uses to process asynchrnous actions and 
+interface them for you so that you don't have to deal with threads.
+
+Its a simple infinite loop that's built inside node and its main task 
+is to monitor async operations that need to be run and figure out 
+when they are ready to be consumed.
+
+------------------Errors/Exceptions------------------------------
+Error is a "Problem"  		>> You let it happen
+Exception is "Condition"	>> You catch and do something about it.
+
+------------------Node Clusters----------------------------------
+You need to have a node cluster so that if one node crashed doe to an Error, then there
+must be other nodes to continue serving.
+
+THIS IS COVERED IN ADVANCED NODE COURSE
+
+Alternatively, you can use pm2.keymetrics.io >> npm install pm2 -gender
+
+---------------------Node's Asynchronous Patterns-----------------
+Callback Pattern in Node::
+	In node, for asynchronous methods, the last parameter is always a callback function
+	eg. const fs = require('fs');
+		fs.readFileAsync(__filename, function cbFunc(err, data) {
+				console.log(`File data is ${data}`);
+		});
+	The callback function always receives an error object as its first argument
+
+------------------MongoDB----------------------------------------
+https://www.mongodb.com/download-center/community 	
+
+Setup:
+	Install
+	In cmd(Admin Mode) type the following:::
+		mongod --directoryperdb --dbpath C:\...\data\db --logpathn c:\..\log.mongo.log --logappend --rest --install   :: this will setup as a service
+		
+		net start MongoDB  :: will start the service
+		
+		mongo  :: this will start the mongo shell
+		
+		show dbs  
+		use dbName  :: will create if doesnt exist
+		db 			:: displays current db name
+		
+db.createUser({
+    user:"brad",
+    pwd: "123",
+    roles: [ "readWrite", "dbAdmin" ]
+})
+
+db.createCollection('customers')		:: case sensitive
+
+show collections
+
+db.customers.insert({first_name: "John", last_name: "Doe"})
+
+db.customers.find();
+db.customers.find().pretty;
+
+db.customers.insert(
+[
+{first_name: "Steve", last_name: "Jobs"},
+{first_name: "Mark", last_name: "Zuck"},
+{first_name: "Elon", last_name: "Musk"},
+{first_name: "Peter", last_name: "Thiel"}
+]
+)
+
+db.customers.insert({first_name: "Leah", last_name: "Kilpatrick", gender: "Female"})
+
+db.customers.update({first_name: "John"},{first_name: "John", last_name: "Wick", gender: "Male"})
+db.customers.update({first_name: "Elon"},{$set:{gender:"Male"}})			>>>> $set adds/updates specific values
+db.customers.update({first_name: "Elon"},{$set:{last_name:"Musketeer"}})
+
+db.customers.update({first_name: "Elon"},{$set:{Age:45}})
+db.customers.update({first_name: "Elon"},{$inc:{Age:5}})		>>> $inc is for increment
+db.customers.update({first_name: "Elon"},{$unset:{Age:1}})		>>> $unset removes field
+
+db.customers.update({first_name: "Jules"},{first_name: "Jules", last_name: "Tang"}, {upsert: true}) >>> upsert creates a record if not found
+
+db.customers.update({first_name: "Elon"},{$rename:{"last_name":"sur_name"}})  >>> $rename field name
+
+db.customers.remove({first_name: "Mark"})
+db.customers.remove({first_name: "Mark"},{justOne: true})
+
+db.customers.insert([{
+    first_name : "Helen",
+    last_name : "Woo",
+    gender : "female",
+    age : 20,
+    address : {
+        street : "19 will street",
+        city : "troy",
+        state : "GC"
+    },
+    memberships : [
+        "mem1",
+        "mem2"
+    ],
+    balance : 99.99
+},{
+    first_name : "Bruce",
+    last_name : "Wayne",
+    gender : "male",
+    age : 45,
+    address : {
+        street : "wayne street",
+        city : "Gotham",
+        state : "NY"
+    },
+    memberships : [
+        "mem3",
+        "mem4"
+    ],
+    balance : 100
+},{
+    first_name : "Sherlock",
+    last_name : "Holmes",
+    gender : "Male",
+    age : 30,
+    address : {
+        street : "221/B Baker street",
+        city : "London",
+        state : "UK"
+    },
+    memberships : [
+        "mem1",
+        "mem4"
+    ],
+    balance : 20
+}])
+
+db.customers.find({first_name:"Helen"}).pretty()
+
+db.customers.find({$or:[{first_name:"Helen"}, {first_name:"Bruce"}]}).pretty()   >>> $or
+
+db.customers.find({age : {$gt : 40}}).pretty()		>>> $gt, $gte, $lt, $lte
+
+db.customers.find({"address.city":"London"}).pretty()	>>> notice ""
+
+db.customers.find({memberships:"mem1"}).pretty()		>>> nothing different for an array
+
+db.customers.find().sort({last_name:1})				>>> 1 asc, -1 desc
+db.customers.find().count()	
+db.customers.find({gender:"female"}).count()	
+db.customers.find().limit(4)	
+db.customers.find().limit(4).sort({last_name:1})	>>> can combine limit sort etc
+
+db.customers.find().forEach(function(doc) {
+    print('Customer Name ' + doc.first_name)
+})
+
+
+About:
+	NoSQL database, specifically document database. 
+	Collections hold documents/records.
+	JSON 
+	Easy to scale.
+	Much faster during operations
+	
+
+
+------------------NodeJS RESTful API-----------------------------
+
+REST? >> Roy Fielding Disertation, year 2000----
+The constraints that shud be in place when two systems talk to each other:
+		1) Client Server - communicate with req and response
+		2) Stateless server - Your shud not store information abt reqest or client on the server. Everything needed to process the request should be in the request sent by client
+		3) Caching
+		4) Uniform interface
+			- Resources(nouns) : eg, book, author
+			- Verb on Resources : Get, Post, Delete, Put, Patch
+			- HATEOS : Hypermedia as the Engine of Application State
+			
+npm install mongoose
+npm install body-parser

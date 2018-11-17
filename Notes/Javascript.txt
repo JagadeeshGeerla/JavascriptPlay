@@ -1,0 +1,181 @@
+Websites:
+jsforcats.com
+
+Books:
+Eloquent Javascript
+
+Speaker:
+@getify
+http://getify.me
+http://speakerdeck.com/getify
+http://YouDontKnowJS.com
+
+****************QUESTIONS***************************
+javascript 1.5 to 1.8.1 extensions.. what are they?
+
+****************************************************
+JS compilation: The JavaScript engine actually compiles the program on the fly and then immediately runs the compiled code.
+
+****************************************************
+Not all places need semicolon
+
+Variable aka identifier
+Variables dont have type
+Value has types
+For string: you may use double or sigle quotes. Its just a preference.
+
+JS is compiled language:
+1st pass: understand the code and match all rules. Declarations are registered as per scope.
+2nd pass: 
+
+
+
+Explicit Conversion(coercion): String(a), Number(a)
+Implicit: a = a + ""
+
+***********New in ES6***************
+ES6 have a "const"(cant change variable type )
+var a=42;
+const a=42;
+
+let - block scoped {}. LET does NOT hoist
+var - function scoped
+
+default parameter value can be set in ES6
+************************************
+
+Comment should be "why or how" not what
+
+
+hoisting
+
+falsy:
+0 -0 NaN
+""
+false
+null
+undefined
+
+
+void: Anything after void becomes undefined
+
+Loop: A loop runs until something is false
+for(;;){} --> will run continuosuly bcoz the condition never fails.
+
+Its an argument when you pass it in. Its a parameter when you declare it.
+
+transpiler? babeljs.io, tracer
+
+es6fiddle.net : play with es6 features
+
+toFixed vs toPrecision
+
+const readonly
+
+------------
+HTTP 2?
+
+speakerdeck.com/getify
+browserversionsaredead.com 
+
+Books:
+High performance javascript by nicholas aikus (orielly)
+javascript patterns(orielly)
+
+https://developer.mozilla.org/en-US/docs/JavaScript
+
+https://github.com/rwldrn/idiomatic.js
+
+https://www.ecma-international.org/ecma-262/5.1/   >> is this the latest?
+
+http://wiki.ecmascript.org/doku.php?id=harmony:proposals
+
+
+SCOPE:
+JS is compiled language. Look for how it works***
+
+2 step:
+1. Compile
+2. Execute
+
+
+undeclared variable creates a global variable
+Always use strict mode
+
+Undefined: means variable was declared but it has this special empty value that we call undefined.Undefined is a proper value, its not the absence of a value. It is an actual value.
+
+
+Undeclared: unable to fulfil a request to find a reference in any of the scopes that we had access to. ie we are unable to find a proper LHS reference in any of the scopes that we have access to.
+
+
+Function decalration vs expression
+
+declaration: function keyword should be first word in the statement, else its an expression.
+
+Named functions expression is better that anonymous function expression.
+
+Named function expression helps in:
+1) Recursion
+2) Debugging - ie easy to locate in stack trace
+3) Self documenting - ie the name can tell what it does
+
+Unit of Scope in JS is function
+Scoping:
+Function scope   
+Catch is block scoped
+
+IN strict mode:
+- eval : a new scope is created for eval
+- with is not allowed
+- undefined = true  -- you cant do such assignment in strict mode
+
+Lexical scope vs Dynamic scope
+Lexical scope: Author Time. Compile time scope. No moe scoping decision beyond compiling stage.
+
+Dynamic Scope: Runtime scoping. This doesnt exist in Javascript.
+
+DONT USE EVAL
+
+YOU CAN USE SET TIMEOUT AS FUNCTION REFERENCE. DONT USE THE STRING SYNTAX.
+
+https://js1k.com/
+JS1k - The JavaScript code golfing competition
+
+DONT USE WITH
+(note: stirct mode doesn't allow with keyword at all)
+
+IIFE Pattern:::
+http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+
+In nonstrict mode, undefined is a writeable property. ie u can do >> undefined=true; and this wud mess up code where undefiend is used. This has been fixed in strict mode.
+
+ES 6 brought in new scope called "Block Scope" via "let". Earlier, function was the only unit of scope.
+
+TC39 committee >> tracer
+
+HOISTING: is a conceptual model of how JS works. It is not really physically what actually happens.
+Hoisting is a mental construct that we have invented to explain the behaviours of Javascript.
+
+THIS: Every funtion, while executing, has a reference to its current execution context, called this.
+
+4 rules on how this keyword is bound in code:::
+1)
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+JAVASCRIPT BEST PRACTICES (jonathanfmills.com)
+
+github.com/trending/javascript
+
+Automatic Semicolon  Insertion (ASI)
+3RULES
+
+Read only properties
+Deleting properties
+
+Use IFFE instead of WITH
+
+https://www.promisejs.org/
+http://kangax.github.io/compat-table/es6/
+
+

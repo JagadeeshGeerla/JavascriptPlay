@@ -1,0 +1,34 @@
+npm install -g @angular/cli
+
+ng new angulartest
+
+ng serve
+
+ng serve -o		>> to open in browser automatically
+
+ng generate component testcomponent   OR ng g c testcomponent
+ ng g c employeecomponent --spec=false
+
+ng g c testcomponent/bindingcomponent
+
+WebPack****  : hot reloading.. hot module replacement   
+
+4 types of bindings:::::::
+	String interpolation
+	Property binding	>> square brackets []
+	Events				>> round brackets ()
+	Two way binding		>> [(ngModel)]=''
+
+
+Directives:  angular.io  >> search for directives
+		Component
+		Structural
+		Attribute
+		
+Services:
+
+Components:
+
+Pipes:
+
+Pass params between components

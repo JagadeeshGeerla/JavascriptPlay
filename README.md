@@ -5,6 +5,7 @@ The JavaScript engine actually compiles the program on the fly and then immediat
 Properties can alternatively be accessed as obj["a"]
 
 
+
 # Resources
 https://developer.mozilla.org/en-US/docs/Web/JavaScript
 https://github.com/rwldrn/idiomatic.js                      >> style guide
