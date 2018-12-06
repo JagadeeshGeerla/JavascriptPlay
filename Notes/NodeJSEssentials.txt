@@ -1,4 +1,4 @@
-
+TEACHING IS NATURE'S WAY OF LETTING YOU KNOW HOW SLOPPY YOUR THINKING IS.
 
 NodeJS:
 
@@ -178,6 +178,16 @@ Callback Pattern in Node::
 				console.log(`File data is ${data}`);
 		});
 	The callback function always receives an error object as its first argument
+	This is a standard in the Node idiomatic callback pattern, that's y this pattern
+	is also often referred to error-first-callback pattern.
+
+Promise pattern in Node::
+	Node today comes with a tool that you can use to promisify any built-in asynchronous API method.
+	You can promisify any asynchrnous action that's designed according to Node's idiomatic callback pattern.(ie. callback-last argument, err-first argument within that callback)
+	Node also ships first level support for promises in some modules as well, ie no need to use promisify function. Eg. fs module. You can use the native promises returned by the fs module
+	const {readFile} = require('fs').promises; 
+	
+	
 
 ------------------MongoDB----------------------------------------
 https://www.mongodb.com/download-center/community 	
@@ -324,6 +334,13 @@ The constraints that shud be in place when two systems talk to each other:
 			- Resources(nouns) : eg, book, author
 			- Verb on Resources : Get, Post, Delete, Put, Patch
 			- HATEOS : Hypermedia as the Engine of Application State
+			
+What is Express?
+	- A routing + sugar layer on top of Node.js HTTP server. Express uses HTTP internally
+	- Declarative routing
+	- Basic middleware pattern
+Other web frameworks:
+	- koa, hapi
 			
 npm install mongoose
 npm install body-parser

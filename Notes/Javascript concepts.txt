@@ -1,0 +1,72 @@
+JavaScript session:
+
+DOM:
+When a web page is loaded, the browser creates a Document Object Model of the page.
+
+DOM is an object oriented representation of an HTML document.
+
+DOM acts as an interface between JavaScript and the document itself and allows the creation of dynamic web pages
+
+Open VS code. Go to, 
+Preferences > Settings > User Settings > Features > Terminal 
+> Integrated Shell: Windows. Paste this: C:\Program Files\Git\bin\bash.exe
+
+
+What: You can write JS without understanding much of its concepts.
+
+ECMAScript is a scripting language specification created to standardize JavaScript.
+
+ECMAScript implementations: Javascript, JScript, ActionScript, etc.
+
+Client-side scripting is changing interface behaviors within a specific web page in response to mouse or keyboard actions, or at specified timing events.
+
+Scope: Where to look for things
+Lexical Scope: Compile time. All scoping decisions are made during compile time.
+
+Javascript is function scoped.
+JS compilation: The JavaScript engine actually compiles the program on the fly and then immediately runs the compiled code.
+1st run: Register declarations in appropriate scoped
+2nd run: Execution phase, i.e. assignments, func calls
+
+1-Scope.js
+A declared variable without an assignment has a value of 'undefined'
+
+Declaration: function keyword should be first word in the STATEMENT(not line), else its an expression.
+
+Hoisting: It is concept that is constructed to understand the behaviour of JS.
+sweets at my desk
+
+Functions: First-class citizens
+
+IIFE :
+- Aim is to minimize global scope pollution and create privacy. Wrap the entire code in an IIFE to create privacy. 
+- Identifier for the function can be invoked. What if there is no identifier? Then your functionality is safe.
+- Parens() is simply a grouping operator to control precedence of execution. It can't contain statements.
+It shud contain an expression to evaluate.
+- The role of () is to disambiguate between function expressions and function declarations.
+- You can pass parameters
+
+	new function(){ /* code */ }
+  new function(){ /* code */ }() // Only need parens if passing arguments
+  
+http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+
+Closure:
+The ability to nest functions gives us closures.
+Closure is when a function “remembers” its lexical scope even when the function is executed outside that lexical scope.
+Condition: Functions should be nested and inner function should be called from outside.
+**let for loop
+
+Module Pattern:
+1) There must be an outer wrapping function that gets EXECUTED. Could be an IIFE. If its not an IIFE then it must getting executed. 
+2) There must be an object returned from the executing function.
+
+
+
+Block Scope
+
+
+
+Objects:
+
+Arrays: Limit is 2^32 -1

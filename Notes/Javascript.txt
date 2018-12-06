@@ -11,7 +11,7 @@ http://speakerdeck.com/getify
 http://YouDontKnowJS.com
 
 ****************QUESTIONS***************************
-javascript 1.5 to 1.8.1 extensions.. what are they?
+
 
 ****************************************************
 JS compilation: The JavaScript engine actually compiles the program on the fly and then immediately runs the compiled code.
@@ -28,6 +28,9 @@ JS is compiled language:
 1st pass: understand the code and match all rules. Declarations are registered as per scope.
 2nd pass: 
 
+JS everywhere: JS runs in Web Browser, NodeJS, React Native, Electron, IoT devices, space
+
+JS core engine powers React Native applications.
 
 
 Explicit Conversion(coercion): String(a), Number(a)

@@ -1,0 +1,25 @@
+JAVASCRIPT and NODEJS links:: (I may/may not have read them completely. This is just for saving my browser session)
+
+JS:
+https://bestofjs.org/
+
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+https://medium.freecodecamp.org/here-are-examples-of-everything-new-in-ecmascript-2016-2017-and-2018-d52fa3b5a70e
+
+https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc
+
+https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
+
+https://medium.com/@pragyan88/writing-middleware-composition-and-currying-elegance-in-javascript-8b15c98a541b
+
+
+NODEJS:
+https://hackernoon.com/middleware-the-core-of-node-js-apps-ab01fee39200
+
+https://hackernoon.com/top-10-benefits-of-using-nodejs-for-web-app-development-39a0db0fbe4e
+
+https://hackernoon.com/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423
+http://www.logeshpaul.com/blog/polyfilling-and-transpiling/
+
+https://github.com/sqreen/awesome-nodejs-projects

@@ -1,0 +1,210 @@
+THIS IS NORES PREPARED BY FOLLOWING :https://app.pluralsight.com/library/courses/node-js-express-rest-web-services/table-of-contents
+THIS DOC WAS PREPARED FOR GIVING A SESSION
+
+Create a github account (https://github.com)
+Install git on your machine.
+	- Click on Windows under Downloads (https://git-scm.com/downloads)
+
+You should have a Git folder under C:\Program Files
+
+
+Open VS code. Go to, 
+Preferences > Settings > User Settings > Features > Terminal 
+> Integrated Shell: Windows. Paste this: C:\Program Files\Git\bin\bash.exe
+
+
+
+Create new repo on github.com. Name it ExpressNodeBookAPI.
+
+In VS code terminal, run the following:
+git clone https://github.com/JagadeeshGeerla/ExpressNodeBookAPI.git
+
+npm init
+
+What is express?
+npm install express
+
+Create app.js
+
+git status   
+git add .
+git status
+git commit -m 'Welcome'
+git push
+
+npm install nodemon
+
+"nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/*",
+      "*/node_modules"
+    ],
+    "delay": 2500,
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
+  
+So far we have a reference for express, and app as an instance of express.
+
+Now lets define routes. 2 ways of routes.
+1. app.get   - for basic simple routing
+2. Better way to do it is Router. it is clean and useful for complex routing.
+
+Define Router?
+ 
+git status   
+git add .
+git status
+git commit -m 'First Router'
+git push
+
+Install MongoDB(Send the steps)
+
+In order to talk to MongoDB we need Mongoose.
+What is Mongoose? Its like Entity frame work or any ORM. It can take data in Mongo and convert it to JSON objects that we can use in our app.
+
+npm install mongoose
+
+- add bookModel.js
+- Demo Book.find to list all books (at this point it will be blank)
+http://localhost:4000/api/books
+
+To do filtering, need to have it in a query like this:
+http://localhost:4000/api/books?genre=fiction
+
+Express packages the query string parameters into JSON object in req.query
+
+req.query =
+{
+	genre: 'Fiction'	
+}
+
+Book.find optionally takes "JSON object" as first parameter.
+
+Show unsanitized query
+Show sanitized
+
+git status   
+git add .
+git status
+git commit -m 'Connecting to Mongo and Filtering'
+git push
+
+http://localhost:4000/api/books/bookId
+
+Add another book router
+bookRouter.route('/Books/:bookId')
+
+req.params.bookId
+
+git status   
+git add .
+git status
+git commit -m 'Getting single item'
+git push
+
+So far we have implemented HTTP Get.
+
+POST
+We need body-parser to get post data.
+
+body-parser is a piece of middleware that allows Express the body and then parse that into a JSON object that we can understand
+
+npm install body-parser
+
+We need to let our applicn know that we are gonna "use" body-parser.
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(body-parser.json());
+
+Now, body-parser will look in body for any JSON object, and if it finds then it will add it to req.body.
+
+Test with Postman:
+Add Tabbed Postman - Rest Client from chrome web store
+
+For post, add header: Content-Type application/json
+
+*Query string key value pair is case sensitive
+
+git status   
+git add .
+git status
+git commit -m 'Added body parser and POST'
+git push
+
+Cleanup the project
+	- Folder/File : Routes/bookRoutes.js
+	- bookRoutes.js > var routes = function () { return bookRouter; }
+	- app.js > bookRouter = require('./Routes/bookRoutes')()
+	- Get localhost:4000/api/books in Postman
+		>> ReferenceError: Book is not defined
+	- app.js > bookRouter = require('./Routes/bookRoutes')(Book)  // Inject Book
+	- bookRoutes.js > var routes = function(Book)  // Add Book parameter
+	
+	- /Books is hardcoded in bookRoutes.js
+	- Update app.use to app.use('/api/Books', bookRouter);
+	
+git status   
+git add .
+git status
+git commit -m 'Code Restructuring'
+git push
+
+PUT and PATCH
+	PUT: Replace an existing item
+	PATCH: Update PART of the item
+	What is middleware?
+	
+PUT:
+- bookRoutes.js > add .put under /:bookId
+- Demo the replacement in Postman
+
+git status   
+git add .
+git status
+git commit -m 'Added PUT'
+git push
+
+PATCH. Tell about Middleware first
+
+- We are going to do middleware by the route
+- Add bookRouter.use('/:bookId', function (req, res, next) {...
+- in GET and PUT, remove findByID and update book to req.book 
+- Demo and Check
+
+Now PATCH:
+- Can't do  if(req.body.title) {} for each field
+- Use for-in
+- make the save asynchrnous both in patch and put
+
+Delete:
+- req.book.remove
+
+git status   
+git add .
+git status
+git commit -m 'Added bookRoute Middleware, PATCH, DELETE'
+git push
+
+
+
+----------------
+res.json
+res.send
+res.render
+
+middleware 
+	- use
+	- next
+
+JS objects
+	- delete req.body._id vs req.book.remove(); is remove part of mongo ?
+
+
+What is ~ ^?
+
+
+
